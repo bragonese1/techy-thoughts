@@ -1,1 +1,1 @@
-# techy-thoughts
+# Techy-Thoughts
