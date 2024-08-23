@@ -1,0 +1,9 @@
+<h1>Welcome to Techy Thoughts!</h1>
+<section>
+    {{#each posts}}
+        <article>
+            <h2><a href="/post/{{id}}">{{title}}</a></h2>
+            <p>By {{user.username}} on {{createdAt}}</p>
+        </article>
+    {{/each}}
+</section>

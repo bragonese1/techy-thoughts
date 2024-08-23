@@ -8,7 +8,7 @@ router.post('/signup', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      res.status(200).json(userData);
+      res.redirect('/')
     });
   } catch (err) {
     res.status(500).json(err);

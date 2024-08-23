@@ -1,1 +1,30 @@
+<article>
+    <h1>{{title}}</h1>
+    <p>By {{user.username}} on {{createdAt}}</p>
+    <div>{{content}}</div>
+</article>
+
+{{#if logged_in}}
+    <form class="comment-form">
+        <textarea id="comment-text" placeholder="Enter your comment"></textarea>
+        <button type="submit">Submit Comment</button>
+    </form>
+{{/if}}
+
+<section>
+    <h2>Comments</h2>
+    {{#if comments.length}}
+        {{#each comments}}
+            <article>
+                <p>{{comment_text}}</p>
+                <p>By {{user.username}} on {{createdAt}}</p>
+            </article>
+        {{/each}}
+    {{else}}
+        <p>No comments yet. Be the first to comment!</p>
+    {{/if}}
+</section>
+
+<script src="/js/comment.js"></script>
+
 
