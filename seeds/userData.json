@@ -1,1 +1,10 @@
-
+[
+    {
+      "username": "blogger1",
+      "password": "password123"
+    },
+    {
+      "username": "blogger2",
+      "password": "password123"
+    }
+  ]
