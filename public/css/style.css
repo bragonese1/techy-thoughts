@@ -1,0 +1,96 @@
+/* Define the color scheme */
+:root {
+    --hunter-green: #355E3B;
+    --beige: #F5F5DC;
+    --neutral-gray: #A9A9A9;
+    --neutral-white: #FAF9F6;
+    --border-color: #2C3E50; /* A darker neutral color for borders */
+}
+
+/* General body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--neutral-white);
+    color: var(--hunter-green);
+    font-family: Arial, sans-serif;
+}
+
+/* Container for content sections */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: var(--beige);
+    padding: 20px;
+    margin: 20px 0;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--hunter-green);
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Paragraphs */
+p {
+    color: var(--hunter-green);
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Buttons */
+button {
+    background-color: var(--hunter-green);
+    color: var(--beige);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--neutral-gray);
+    color: var(--hunter-green);
+}
+
+/* Links */
+a {
+    color: var(--hunter-green);
+    text-decoration: none;
+    border-bottom: 2px solid var(--hunter-green);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+a:hover {
+    color: var(--neutral-gray);
+    border-color: var(--neutral-gray);
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--hunter-green);
+    color: var(--beige);
+    text-align: center;
+    border-top: 2px solid var(--border-color);
+}
+
+/* Center content within specific sections */
+section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--neutral-white);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+}
