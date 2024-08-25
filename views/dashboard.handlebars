@@ -1,26 +1,52 @@
-<h1>Your Dashboard</h1>
+<div class="container">
+    <h2>Your Dashboard</h2>
 
-<section>
-    <h2>Your Posts</h2>
-    {{#if posts.length}}
-        {{#each posts}}
-            <article>
-                <h3>{{title}}</h3>
-                <div>{{content}}</div>
-                <button class="edit-btn" data-id="{{id}}">Edit</button>
-                <button class="delete-btn" data-id="{{id}}">Delete</button>
-            </article>
-        {{/each}}
+    <!-- Display existing posts -->
+    {{#each posts}}
+        <section class="post">
+            <h3 class="post-title">{{this.title}}</h3>
+            <p class="post-content">{{this.content}}</p>
+            <div class="post-actions">
+                <button class="edit-btn" data-id="{{this.id}}">Edit</button>
+                <button class="delete-btn" data-id="{{this.id}}">Delete</button>
+            </div>
+        </section>
     {{else}}
-        <p>You haven't created any posts yet. Start writing below!</p>
-    {{/if}}
+        <p>No posts yet. Start by creating a new post below!</p>
+    {{/each}}
 
-    <form class="new-post-form">
-        <input type="text" id="post-title" placeholder="Title">
-        <textarea id="post-content" placeholder="Your content"></textarea>
-        <button type="submit">Create Post</button>
+    <!-- Form to create a new post -->
+    <form class="post-form">
+        <input type="text" id="post-title" placeholder="Title" required>
+        <textarea id="post-content" placeholder="Your content" required></textarea>
+        
+        <div class="post-actions">
+            <button type="submit">Create Post</button>
+        </div>
     </form>
-</section>
+</div>
 
-<script src="/js/post.js"></script>
+<script>
+document.querySelector('.post-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector('#post-title').value.trim();
+    const content = document.querySelector('#post-content').value.trim();
+
+    if (title && content) {
+        const response = await fetch('/api/posts', {
+            method: 'POST',
+            body: JSON.stringify({ title, content }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            // Reload the page to see the new post, or update the DOM dynamically
+            document.location.reload();  // Reload the page to see the new post
+        } else {
+            alert('Failed to create post.');
+        }
+    }
+});
+</script>
 
