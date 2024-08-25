@@ -1,8 +1,10 @@
-<article>
-    <h1>{{title}}</h1>
-    <p>By {{user.username}} on {{createdAt}}</p>
-    <div>{{content}}</div>
-</article>
+ <div class="container">
+        <h1>{{this.title}}</h1>
+        <section class="post">
+            <h3 class="post-title">{{this.title}}</h3>
+            <p>by {{this.user.username}} on {{this.createdAt}}</p>
+            <p class="post-content">{{this.content}}</p>
+        </section>
 
 {{#if logged_in}}
     <form class="comment-form">
@@ -11,20 +13,25 @@
     </form>
 {{/if}}
 
-<section>
-    <h2>Comments</h2>
-    {{#if comments.length}}
-        {{#each comments}}
-            <article>
-                <p>{{comment_text}}</p>
-                <p>By {{user.username}} on {{createdAt}}</p>
-            </article>
-        {{/each}}
-    {{else}}
-        <p>No comments yet. Be the first to comment!</p>
-    {{/if}}
-</section>
+<!-- Comments Section -->
+        {{#if comments.length}}
+            <div class="comments-section">
+                <h3>Comments</h3>
+                {{#each comments}}
+                    <div class="comment">
+                        <p>{{comment_text}}</p>
+                        <p><strong>{{this.user.username}}</strong> commented on {{this.createdAt}}:</p>
+                        <p>{{this.content}}</p>
+                    </div>
+                {{/each}}
+            </div>
+        {{else}}
+            <p>No comments yet. Be the first to comment!</p>
+        {{/if}}
+</div>
+
+<footer>
+        © 2024 Techy Thoughts
+    </footer>
 
 <script src="/js/comment.js"></script>
-
-

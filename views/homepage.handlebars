@@ -1,9 +1,20 @@
-<h1>Welcome to Techy Thoughts!</h1>
-<section>
-    {{#each posts}}
-        <article>
-            <h2><a href="/post/{{id}}">{{title}}</a></h2>
-            <p>By {{user.username}} on {{createdAt}}</p>
-        </article>
-    {{/each}}
-</section>
+    <div class="container">
+        <h1>Welcome to Techy Thoughts!</h1>
+
+        <!-- Display all posts -->
+        {{#each posts}}
+            <section class="post">
+                <h3 class="post-title">
+                <a href="/post/{{this.id}}">{{this.title}}</a> 
+                </h3>
+                <p>by {{this.user.username}} on {{this.createdAt}}</p>
+                <p class="post-content">{{this.content}}</p>
+            </section>
+        {{else}}
+            <p>No posts yet. Be the first to post!</p>
+        {{/each}}
+    </div>
+
+    <footer>
+        © 2024 Techy Thoughts
+    </footer>
