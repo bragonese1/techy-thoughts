@@ -26,6 +26,7 @@
     </form>
 </div>
 
+
 <script>
 document.querySelector('.post-form').addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -41,12 +42,50 @@ document.querySelector('.post-form').addEventListener('submit', async (event) =>
         });
 
         if (response.ok) {
-            // Reload the page to see the new post, or update the DOM dynamically
-            document.location.reload();  // Reload the page to see the new post
+            // Reload the page to see the new post
+            document.location.reload();
         } else {
             alert('Failed to create post.');
         }
     }
 });
-</script>
 
+// JavaScript for handling the Edit button click
+document.querySelectorAll('.edit-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+        const id = button.getAttribute('data-id');
+        const newContent = prompt('Please edit your post:');
+        if (newContent) {
+            const response = await fetch(`/api/posts/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: newContent })
+            });
+
+            if (response.ok) {
+                document.location.reload();  // Reload the page to reflect the changes
+            } else {
+                alert('Failed to update the post');
+            }
+        }
+    });
+});
+
+// JavaScript for handling the Delete button click
+document.querySelectorAll('.delete-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+        const id = button.getAttribute('data-id');
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            document.location.reload();  // Reload the page to remove the deleted post
+        } else {
+            alert('Failed to delete the post');
+        }
+    });
+});
+</script>
