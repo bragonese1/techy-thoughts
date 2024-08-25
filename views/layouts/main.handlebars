@@ -13,7 +13,7 @@
             <a href="/">Home</a>
             {{#if logged_in}}
                 <a href="/dashboard">Dashboard</a>
-                <a href="/logout">Logout</a>
+                <button id="logout">Logout</button>
             {{else}}
                 <a href="/login">Login</a>
             {{/if}}
@@ -27,6 +27,7 @@
     <footer>
         <p>&copy; 2024 Techy Thoughts</p>
     </footer>
+    <script src="/js/logout.js"></script>
 </body>
 </html>
 
