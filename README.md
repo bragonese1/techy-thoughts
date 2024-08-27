@@ -32,6 +32,16 @@ ISC
 [Deployed Render Site](https://techy-thoughts.onrender.com)
 
 ## Contributions
+Helpful sites that contributed to this project.
+
+* [W3Schools](https://www.w3schools.com/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [MDN Web Docs](https://developer.mozilla.org/en-US/)
+* [CSS-Tricks](https://css-tricks.com/)
+
+Peer Help:
+* [Barrett](https://github.com/bmist41)
+
 If you would like to contribute to Techy Thoughts, please fork the repository and submit a pull request with your changes. Contributions are welcome!
 
 ## Tests
